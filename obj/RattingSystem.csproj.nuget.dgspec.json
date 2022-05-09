@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\RattingSystem\\RattingSystem\\RattingSystem.csproj": {}
+    "C:\\Projects\\RatingSystemAPI\\RattingSystem.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\RattingSystem\\RattingSystem\\RattingSystem.csproj": {
+    "C:\\Projects\\RatingSystemAPI\\RattingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\RattingSystem\\RattingSystem\\RattingSystem.csproj",
+        "projectUniqueName": "C:\\Projects\\RatingSystemAPI\\RattingSystem.csproj",
         "projectName": "RattingSystem",
-        "projectPath": "D:\\Projects\\RattingSystem\\RattingSystem\\RattingSystem.csproj",
-        "packagesPath": "C:\\Users\\Mohammad\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\RattingSystem\\RattingSystem\\obj\\",
+        "projectPath": "C:\\Projects\\RatingSystemAPI\\RattingSystem.csproj",
+        "packagesPath": "C:\\Users\\Mahmoud Almasri\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\RatingSystemAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Mohammad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mahmoud Almasri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -97,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

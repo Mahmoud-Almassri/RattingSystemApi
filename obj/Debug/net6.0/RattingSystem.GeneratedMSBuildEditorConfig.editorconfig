@@ -8,37 +8,37 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RattingSystem
 build_property.RootNamespace = RattingSystem
-build_property.ProjectDir = D:\Projects\RattingSystem\RattingSystem\
+build_property.ProjectDir = C:\Projects\RatingSystemAPI\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Projects\RattingSystem\RattingSystem
+build_property.MSBuildProjectDirectory = C:\Projects\RatingSystemAPI
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Projects/RattingSystem/RattingSystem/Pages/Error.cshtml]
+[C:/Projects/RatingSystemAPI/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/RattingSystem/RattingSystem/Pages/Index.cshtml]
+[C:/Projects/RatingSystemAPI/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/RattingSystem/RattingSystem/Pages/Privacy.cshtml]
+[C:/Projects/RatingSystemAPI/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/RattingSystem/RattingSystem/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Projects/RatingSystemAPI/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/RattingSystem/RattingSystem/Pages/_ViewImports.cshtml]
+[C:/Projects/RatingSystemAPI/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/RattingSystem/RattingSystem/Pages/_ViewStart.cshtml]
+[C:/Projects/RatingSystemAPI/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/RattingSystem/RattingSystem/Pages/Shared/_Layout.cshtml]
+[C:/Projects/RatingSystemAPI/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-um3kqao8w7

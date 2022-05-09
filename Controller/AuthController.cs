@@ -33,13 +33,25 @@ namespace RattingSystem.Controller
             _userService = userService;
         }
         [HttpPost("Login")]
-        public async Task<LoginResponseDTO> Login(LoginDTO loginDTO)
+        public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
-            IdentityUser user = _userManager.Users.FirstOrDefault(x => x.UserName == loginDTO.UserName);
-            
+            IdentityUser user = _userManager.Users.FirstOrDefault(x => x.UserName == loginDTO.UserName || x.Email == loginDTO.UserName);
+            Microsoft.AspNetCore.Identity.SignInResult oSignInResult;
             if (user != null)
             {
-                Microsoft.AspNetCore.Identity.SignInResult oSignInResult = await _signInManager.PasswordSignInAsync(loginDTO.UserName, loginDTO.Password, false, false);
+                oSignInResult = await _signInManager.PasswordSignInAsync(loginDTO.UserName, loginDTO.Password, false, false);
+                if (!oSignInResult.Succeeded)
+                {
+                    IdentityUser userEmail = await _userManager.FindByEmailAsync(loginDTO.UserName);
+                    if (userEmail != null)
+                    {
+                        oSignInResult = await _signInManager.PasswordSignInAsync(userEmail.UserName, loginDTO.Password, false, false);
+                    }
+                    else
+                    {
+                        return BadRequest("Password Is Wrong");
+                    }
+                }
                 if (oSignInResult.Succeeded)
                 {
                     IList<string> roles = await _userManager.GetRolesAsync(user);
@@ -50,17 +62,17 @@ namespace RattingSystem.Controller
                     loginResponseDTO.UserName = user.UserName;
                     loginResponseDTO.Roles = roles;
                     
-                    return loginResponseDTO;
+                    return Ok(loginResponseDTO);
                 }
                 else
                 {
-                    throw new ValidationException("Password Is Wrong");
+                    return BadRequest("Password Is Wrong");
                 }
 
             }
             else
             {
-                throw new ValidationException("UserName is Wrong");
+                return BadRequest("UserName is Wrong");
             }
         }
         [HttpPost("Registration")]
@@ -68,7 +80,7 @@ namespace RattingSystem.Controller
         {
             if (_userManager.Users.Any(x => x.UserName == registrationDTO.UserName))
             {
-                throw new ValidationException("UserName Already Exists");
+                return BadRequest("UserName Already Exists");
             }
             IdentityUser identityUser = new IdentityUser();
             identityUser.UserName = registrationDTO.UserName;
@@ -88,7 +100,7 @@ namespace RattingSystem.Controller
             }
             else
             {
-                throw new ValidationException("Error While Creating User");
+                return BadRequest("The password does not meet the password policy requirements");
             }
 
         }

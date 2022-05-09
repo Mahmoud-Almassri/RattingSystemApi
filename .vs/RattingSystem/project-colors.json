@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "143e63e2-22d8-435b-80b3-6c226032ce46": {
+      "ProjectGuid": "143e63e2-22d8-435b-80b3-6c226032ce46",
+      "DisplayName": "RattingSystem",
+      "ColorIndex": 0
+    },
+    "74f65eed-ad50-484e-95ba-7f7b0400e450": {
+      "ProjectGuid": "74f65eed-ad50-484e-95ba-7f7b0400e450",
+      "DisplayName": "RattingSystem",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

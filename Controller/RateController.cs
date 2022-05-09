@@ -33,11 +33,17 @@ namespace RattingSystem.Controller
         }
 
         [HttpGet]
-        [Route("ShowAllRates")]
-        public IActionResult ShowAllRates()
+        [Route("ShowSessionsRates")]
+        public IActionResult ShowSessionsRates()
         {
-            SessionRatesDTO sessionRateVM = new SessionRatesDTO();
             List<Rate> sessionRates = _rattingSystemContext.Rate.Include(x => x.Rate_Session).Include(x => x.Rate_User).ToList();
+            return Ok(sessionRates);
+        }
+
+        [HttpGet]
+        [Route("ShowAverageSessionRates")]
+        public IActionResult ShowAverageSessionRates()
+        {
             List<Session> Session = _rattingSystemContext.Session.ToList();
             var sessionRateAvarege = from t in _rattingSystemContext.Rate
                                      group t by new
@@ -63,9 +69,7 @@ namespace RattingSystem.Controller
 
 
             }
-            sessionRateVM.SesstionList = sessionList;
-            sessionRateVM.Rate = sessionRates.OrderBy(x => x.Session_Id).ToList();
-            return Ok(sessionRateVM);
+            return Ok(sessionList);
         }
     }
 }
