@@ -145,4 +145,3 @@ C:\Projects\RatingSystemAPI\obj\Debug\net6.0\RattingSystem.dll
 C:\Projects\RatingSystemAPI\obj\Debug\net6.0\ref\RattingSystem.dll
 C:\Projects\RatingSystemAPI\obj\Debug\net6.0\RattingSystem.pdb
 C:\Projects\RatingSystemAPI\obj\Debug\net6.0\RattingSystem.genruntimeconfig.cache
-C:\Projects\RatingSystemAPI\obj\Debug\net6.0\RattingSystem.csproj.AssemblyReference.cache

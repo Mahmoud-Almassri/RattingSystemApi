@@ -35,17 +35,17 @@ namespace RattingSystem.Controller
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
-            IdentityUser user = _userManager.Users.FirstOrDefault(x => x.UserName == loginDTO.UserName || x.Email == loginDTO.UserName);
+            IdentityUser user = _userManager.Users.FirstOrDefault(x => x.UserName.ToLower() == loginDTO.UserName.ToLower() || x.Email.ToLower() == loginDTO.UserName.ToLower());
             Microsoft.AspNetCore.Identity.SignInResult oSignInResult;
             if (user != null)
             {
-                oSignInResult = await _signInManager.PasswordSignInAsync(loginDTO.UserName, loginDTO.Password, false, false);
+                oSignInResult = await _signInManager.PasswordSignInAsync(loginDTO.UserName.ToLower(), loginDTO.Password, false, false);
                 if (!oSignInResult.Succeeded)
                 {
-                    IdentityUser userEmail = await _userManager.FindByEmailAsync(loginDTO.UserName);
+                    IdentityUser userEmail = await _userManager.FindByEmailAsync(loginDTO.UserName.ToLower());
                     if (userEmail != null)
                     {
-                        oSignInResult = await _signInManager.PasswordSignInAsync(userEmail.UserName, loginDTO.Password, false, false);
+                        oSignInResult = await _signInManager.PasswordSignInAsync(userEmail.UserName.ToLower(), loginDTO.Password, false, false);
                     }
                     else
                     {
@@ -59,7 +59,7 @@ namespace RattingSystem.Controller
                     LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
                     loginResponseDTO.AccessToken = WriteToken(claims);
                     loginResponseDTO.UserId = new Guid(user.Id);
-                    loginResponseDTO.UserName = user.UserName;
+                    loginResponseDTO.UserName = user.UserName.ToLower();
                     loginResponseDTO.Roles = roles;
                     
                     return Ok(loginResponseDTO);
@@ -78,13 +78,13 @@ namespace RattingSystem.Controller
         [HttpPost("Registration")]
         public async Task<IActionResult> Registration(RegistrationDTO registrationDTO)
         {
-            if (_userManager.Users.Any(x => x.UserName == registrationDTO.UserName))
+            if (_userManager.Users.Any(x => x.UserName.ToLower() == registrationDTO.UserName.ToLower() || x.Email.ToLower() == registrationDTO.Email.ToLower()))
             {
-                return BadRequest("UserName Already Exists");
+                return BadRequest("UserName Or Email Already Exists");
             }
             IdentityUser identityUser = new IdentityUser();
-            identityUser.UserName = registrationDTO.UserName;
-            identityUser.Email = registrationDTO.Email;
+            identityUser.UserName = registrationDTO.UserName.ToLower();
+            identityUser.Email = registrationDTO.Email.ToLower();
 
 
             IdentityResult result = await _userManager.CreateAsync(identityUser, registrationDTO.Password);
@@ -112,7 +112,7 @@ namespace RattingSystem.Controller
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, !string.IsNullOrEmpty(user.Id) ? user.Id : string.Empty),
-                new Claim(ClaimTypes.Name, !string.IsNullOrEmpty(user.UserName) ? user.UserName : "")
+                new Claim(ClaimTypes.Name, !string.IsNullOrEmpty(user.UserName) ? user.UserName.ToLower() : "")
             };
             foreach (var item in roles)
             {
